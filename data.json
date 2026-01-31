@@ -1,0 +1,56 @@
+{
+  "timeMatrix": {
+    "quadrant1": {
+      "name": "Urgent & Important",
+      "description": "Crises, deadlines, things that must be handled immediately",
+      "activities": [
+        "Clean up after a water leak or spill",
+        "Cook dinner because the family needs to eat now",
+        "Wash dishes when there are none left for the next meal",
+        "Emergency grocery run due to no food at home",
+        "Fix a broken appliance essential for daily life",
+        "Take out overflowing trash",
+        "Handle a sudden pest problem"
+      ]
+    },
+    "quadrant2": {
+      "name": "Not Urgent & Important",
+      "description": "Planning, prevention, long-term improvement",
+      "activities": [
+        "Weekly meal planning",
+        "Regular house cleaning schedule",
+        "Organizing cupboards and storage areas",
+        "Preventive home maintenance",
+        "Batch cooking meals for the week",
+        "Decluttering unused items",
+        "Creating a household budget",
+        "Teaching children household routines",
+        "Deep cleaning bathrooms and kitchen appliances"
+      ]
+    },
+    "quadrant3": {
+      "name": "Urgent & Not Important",
+      "description": "Interruptions and low-value urgent tasks",
+      "activities": [
+        "Cleaning the house suddenly because guests might arrive",
+        "Re-cleaning already clean areas unnecessarily",
+        "Cooking an elaborate meal due to social pressure",
+        "Responding immediately to non-essential household messages",
+        "Impulsively rearranging furniture",
+        "Running errands that feel urgent but could wait"
+      ]
+    },
+    "quadrant4": {
+      "name": "Not Urgent & Not Important",
+      "description": "Time wasters and avoidance activities",
+      "activities": [
+        "Excessive TV watching instead of doing chores",
+        "Endless scrolling on the phone",
+        "Re-organizing the same drawer repeatedly",
+        "Playing games while chores pile up",
+        "Researching cleaning methods instead of cleaning",
+        "Over-shopping for unnecessary household items"
+      ]
+    }
+  }
+}
