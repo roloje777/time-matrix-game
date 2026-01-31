@@ -32,10 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /**
  * Load activities from data.json file
- * Uses fetch API to load the JSON data
+ * Uses fetch API to load the JSON data with fallback for file:// protocol
  */
 async function loadActivities() {
     try {
+        // Try to fetch the JSON file
         const response = await fetch('data.json');
         
         // Check if the fetch was successful
@@ -65,13 +66,157 @@ async function loadActivities() {
         
     } catch (error) {
         console.error('Error loading activities:', error);
-        currentActivityEl.innerHTML = `
-            <div style="color: red; font-weight: bold;">
-                Error loading activities: ${error.message}<br>
-                Please check that data.json exists and contains valid activity data.
-            </div>
-        `;
+        
+        // Fallback: Use embedded data if fetch fails (common with file:// protocol)
+        if (error.message.includes('Failed to fetch') || error.message.includes('CORS')) {
+            console.log('Using fallback embedded data due to fetch restrictions');
+            useEmbeddedData();
+        } else {
+            currentActivityEl.innerHTML = `
+                <div style="color: red; font-weight: bold;">
+                    Error loading activities: ${error.message}<br>
+                    Please check that data.json exists and contains valid activity data.
+                </div>
+            `;
+        }
     }
+}
+
+/**
+ * Fallback function to use embedded data when fetch fails
+ * This happens when opening HTML files directly in browsers with CORS restrictions
+ */
+function useEmbeddedData() {
+    // Embedded data as fallback
+    const embeddedData = {
+        "activities": [
+            {
+                "description": "Clean up after a water leak or spill",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Cook dinner because the family needs to eat now",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Wash dishes when there are none left for the next meal",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Emergency grocery run due to no food at home",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Fix a broken appliance essential for daily life",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Take out overflowing trash",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Handle a sudden pest problem",
+                "correctQuadrant": "q1"
+            },
+            {
+                "description": "Weekly meal planning",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Regular house cleaning schedule",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Organizing cupboards and storage areas",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Preventive home maintenance",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Batch cooking meals for the week",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Decluttering unused items",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Creating a household budget",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Teaching children household routines",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Deep cleaning bathrooms and kitchen appliances",
+                "correctQuadrant": "q2"
+            },
+            {
+                "description": "Cleaning the house suddenly because guests might arrive",
+                "correctQuadrant": "q3"
+            },
+            {
+                "description": "Re-cleaning already clean areas unnecessarily",
+                "correctQuadrant": "q3"
+            },
+            {
+                "description": "Cooking an elaborate meal due to social pressure",
+                "correctQuadrant": "q3"
+            },
+            {
+                "description": "Responding immediately to non-essential household messages",
+                "correctQuadrant": "q3"
+            },
+            {
+                "description": "Impulsively rearranging furniture",
+                "correctQuadrant": "q3"
+            },
+            {
+                "description": "Running errands that feel urgent but could wait",
+                "correctQuadrant": "q3"
+            },
+            {
+                "description": "Excessive TV watching instead of doing chores",
+                "correctQuadrant": "q4"
+            },
+            {
+                "description": "Endless scrolling on the phone",
+                "correctQuadrant": "q4"
+            },
+            {
+                "description": "Re-organizing the same drawer repeatedly",
+                "correctQuadrant": "q4"
+            },
+            {
+                "description": "Playing games while chores pile up",
+                "correctQuadrant": "q4"
+            },
+            {
+                "description": "Researching cleaning methods instead of cleaning",
+                "correctQuadrant": "q4"
+            },
+            {
+                "description": "Over-shopping for unnecessary household items",
+                "correctQuadrant": "q4"
+            }
+        ]
+    };
+    
+    // Use the embedded data
+    activities = embeddedData.activities;
+    totalActivities = activities.length;
+    
+    // Randomize the order of activities
+    shuffledActivities = shuffleArray([...activities]);
+    
+    // Update progress display
+    progressEl.textContent = `0 / ${totalActivities}`;
+    
+    // Start the game
+    startGame();
 }
 
 /**
@@ -146,18 +291,89 @@ function selectQuadrant(selectedQuadrant) {
     // Check if the selection is correct
     const isCorrect = selectedQuadrant === currentActivity.correctQuadrant;
     
+    // Update score if correct
     if (isCorrect) {
-        score++;
-        scoreEl.textContent = score;
-        showFeedback('Correct! Well done!', 'success');
-    } else {
-        showFeedback(`Incorrect. This activity belongs in ${getQuadrantName(currentActivity.correctQuadrant)}.`, 'error');
+        updateScore(1);
     }
+    
+    // Show visual feedback on the selected quadrant
+    showQuadrantFeedback(selectedQuadrant, isCorrect);
+    
+    // Show text feedback message
+    showTextFeedback(isCorrect, currentActivity);
     
     // Move to next activity after a short delay
     setTimeout(() => {
-        displayActivity(currentActivityIndex + 1);
+        showNextActivity();
     }, 1500);
+}
+
+/**
+ * Update the score display
+ * @param {number} points - Points to add to the score (1 for correct, 0 for incorrect)
+ */
+function updateScore(points) {
+    score += points;
+    scoreEl.textContent = score;
+}
+
+/**
+ * Show visual feedback on the selected quadrant
+ * @param {string} selectedQuadrant - The quadrant that was clicked
+ * @param {boolean} isCorrect - Whether the selection was correct
+ */
+function showQuadrantFeedback(selectedQuadrant, isCorrect) {
+    // Get the clicked quadrant element
+    const quadrantElement = document.querySelector(`.quadrant.${selectedQuadrant}`);
+    
+    if (!quadrantElement) return;
+    
+    // Remove any existing feedback classes
+    quadrantElement.classList.remove('feedback-correct', 'feedback-incorrect');
+    
+    // Add appropriate feedback class
+    if (isCorrect) {
+        quadrantElement.classList.add('feedback-correct');
+    } else {
+        quadrantElement.classList.add('feedback-incorrect');
+    }
+    
+    // Remove feedback after animation duration
+    setTimeout(() => {
+        quadrantElement.classList.remove('feedback-correct', 'feedback-incorrect');
+    }, 1000);
+}
+
+/**
+ * Show text feedback message to the user
+ * @param {boolean} isCorrect - Whether the selection was correct
+ * @param {Object} activity - The current activity object
+ */
+function showTextFeedback(isCorrect, activity) {
+    if (isCorrect) {
+        feedbackEl.textContent = '✅ Correct! Well done!';
+        feedbackEl.className = 'feedback success';
+    } else {
+        const correctQuadrantName = getQuadrantName(activity.correctQuadrant);
+        feedbackEl.textContent = `❌ Incorrect. This activity belongs in ${correctQuadrantName}.`;
+        feedbackEl.className = 'feedback error';
+    }
+}
+
+/**
+ * Show the next activity in the sequence
+ */
+function showNextActivity() {
+    const nextIndex = currentActivityIndex + 1;
+    
+    // Check if we've reached the end of activities
+    if (nextIndex >= shuffledActivities.length) {
+        endGame();
+        return;
+    }
+    
+    // Display the next activity
+    displayActivity(nextIndex);
 }
 
 /**

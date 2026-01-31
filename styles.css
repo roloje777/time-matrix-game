@@ -261,6 +261,30 @@ body {
     outline-offset: 2px;
 }
 
+/* Visual feedback styles for correct/incorrect selections */
+.quadrant.feedback-correct {
+    /* Green highlight for correct answers */
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.3), rgba(39, 174, 96, 0.15));
+    border-color: var(--q2-color);
+    box-shadow: 0 0 20px rgba(39, 174, 96, 0.4);
+    animation: feedbackPulse 0.5s ease-in-out;
+}
+
+.quadrant.feedback-incorrect {
+    /* Red highlight for incorrect answers */
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.3), rgba(231, 76, 60, 0.15));
+    border-color: var(--q1-color);
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.4);
+    animation: feedbackPulse 0.5s ease-in-out;
+}
+
+/* Feedback pulse animation */
+@keyframes feedbackPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
 /* Quadrant Header Styles */
 .quadrant-header h3 {
     font-size: 2rem;
