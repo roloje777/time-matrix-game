@@ -14,6 +14,10 @@
     --card-bg: #ffffff;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --grid-gap: 20px;
+    --quadrant-padding: 24px;
+    --hover-scale: 1.02;
+    --transition-speed: 0.3s;
 }
 
 /* Reset and Base Styles */
@@ -66,16 +70,30 @@ body {
     font-weight: 700;
 }
 
-/* Score Board Styles */
+/* Score Board Styles - Clean and prominent */
 .score-board {
+    /* Layout */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #f0f0f0;
-    padding: 15px;
+    
+    /* Visual styling */
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border: 2px solid #e9ecef;
     border-radius: var(--border-radius);
+    padding: 18px 25px;
     margin-bottom: 30px;
-    border: 1px solid #ddd;
+    box-shadow: var(--box-shadow);
+    
+    /* Smooth transitions */
+    transition: all var(--transition-speed) ease;
+}
+
+.score-board:hover {
+    /* Subtle hover effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--secondary-color);
 }
 
 .score-item {
@@ -86,17 +104,30 @@ body {
 }
 
 .score-label {
-    font-size: 0.9rem;
-    color: #666;
+    /* Label styling */
+    font-size: 0.85rem;
+    color: #6c757d;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 .score-value {
-    font-size: 1.5rem;
-    font-weight: bold;
+    /* Score number styling */
+    font-size: 1.8rem;
+    font-weight: 800;
     color: var(--primary-color);
+    letter-spacing: 1px;
+    
+    /* Add subtle animation for score updates */
+    transition: all 0.2s ease;
+}
+
+/* Enhance score value on hover */
+.score-value:hover {
+    color: var(--secondary-color);
+    transform: scale(1.05);
 }
 
 /* Activity Section Styles */
@@ -108,20 +139,40 @@ body {
     text-align: center;
     margin-bottom: 15px;
     color: var(--primary-color);
+    font-size: 1.5rem;
 }
 
+/* Current Activity Display - Large and prominent */
 .activity-card {
+    /* Visual styling */
     background-color: #fff;
-    border: 2px solid #ddd;
+    border: 3px solid #e0e0e0;
     border-radius: var(--border-radius);
-    padding: 20px;
-    font-size: 1.2rem;
+    box-shadow: var(--box-shadow);
+    
+    /* Typography - large and readable */
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--primary-color);
+    
+    /* Layout and spacing */
     text-align: center;
-    min-height: 60px;
+    min-height: 80px;
+    padding: 25px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--box-shadow);
+    
+    /* Smooth transitions */
+    transition: all var(--transition-speed) ease;
+}
+
+/* Enhance activity card on hover */
+.activity-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }
 
 /* Time Matrix Styles */
@@ -135,50 +186,79 @@ body {
     color: var(--primary-color);
 }
 
+/* Main Time Matrix Grid Layout */
 .time-matrix {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: var(--grid-gap);
+    margin: 0 auto;
+    max-width: 800px;
 }
 
+/* Individual Quadrant Styling */
 .quadrant {
+    /* Grid positioning and sizing */
     border-radius: var(--border-radius);
-    padding: 20px;
+    padding: var(--quadrant-padding);
     text-align: center;
-    transition: all 0.3s ease;
+    
+    /* Visual appearance */
     border: 2px solid transparent;
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    
+    /* Layout and content */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px;
+    min-height: 220px;
     position: relative;
-    box-shadow: var(--box-shadow);
+    
+    /* Transitions for smooth interactions */
+    transition: all var(--transition-speed) ease;
 }
 
-/* Quadrant Colors */
+/* Distinct background colors for each quadrant */
 .quadrant.q1 {
-    background-color: rgba(231, 76, 60, 0.1);
+    /* Q1: Important & Urgent - Red theme */
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.05), rgba(231, 76, 60, 0.02));
     border-color: var(--q1-color);
 }
 
 .quadrant.q2 {
-    background-color: rgba(39, 174, 96, 0.1);
+    /* Q2: Important & Not Urgent - Green theme */
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.05), rgba(39, 174, 96, 0.02));
     border-color: var(--q2-color);
 }
 
 .quadrant.q3 {
-    background-color: rgba(243, 156, 18, 0.1);
+    /* Q3: Not Important & Urgent - Orange theme */
+    background: linear-gradient(135deg, rgba(243, 156, 18, 0.05), rgba(243, 156, 18, 0.02));
     border-color: var(--q3-color);
 }
 
 .quadrant.q4 {
-    background-color: rgba(149, 165, 166, 0.1);
+    /* Q4: Not Important & Not Urgent - Grey theme */
+    background: linear-gradient(135deg, rgba(149, 165, 166, 0.05), rgba(149, 165, 166, 0.02));
     border-color: var(--q4-color);
 }
 
+/* Hover effects for quadrants */
 .quadrant:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    /* Slight scale up effect */
+    transform: scale(var(--hover-scale));
+    
+    /* Enhanced shadow on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Subtle background darkening */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.01));
+}
+
+/* Focus state for accessibility */
+.quadrant:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
 }
 
 /* Quadrant Header Styles */
