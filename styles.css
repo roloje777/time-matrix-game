@@ -458,6 +458,7 @@ body {
         font-size: 1rem;
         min-height: 80px;
     }
+  
 }
 
 /* Accessibility */
@@ -678,6 +679,49 @@ body {
     outline: 3px solid rgba(52, 152, 219, 0.3);
     outline-offset: 2px;
 }
+/* Logo styling */
+.header {
+    display: flex;
+    align-items: center; /* vertically center logo and text */
+    justify-content: center; /* center content horizontally */
+    flex-wrap: wrap; /* allow wrapping on small screens */
+    padding: 10px;
+}
+
+.header .logo {
+    margin-right: 20px; /* space between logo and title */
+    max-width: 80px; /* prevent logo from being too large */
+    height: auto;
+}
+
+.header h1 {
+    flex: 1 1 200px; /* grow and shrink with a minimum width */
+    text-align: center; 
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column; /* stack logo and title vertically */
+        text-align: center;
+    }
+
+    .header .logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+        max-width: 60px;
+    }
+
+    .header h1 {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
