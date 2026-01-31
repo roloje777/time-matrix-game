@@ -22,6 +22,13 @@
 
         <!-- Score Display -->
         <div class="score-board">
+            <div class="language-selector">
+                <label for="language-select" class="language-label">Language:</label>
+                <select id="language-select" class="language-dropdown" onchange="changeLanguage(this.value)">
+                    <option value="en">English</option>
+                    <option value="pt">Português</option>
+                </select>
+            </div>
             <div class="score-item">
                 <span class="score-label">Score:</span>
                 <span id="score" class="score-value">0</span>
@@ -30,6 +37,7 @@
                 <span class="score-label">Activities:</span>
                 <span id="progress" class="score-value">0 / 0</span>
             </div>
+            <button class="help-btn" onclick="toggleHelp()" title="Help">?</button>
         </div>
 
         <!-- Current Activity Display -->
@@ -96,6 +104,78 @@
 
         <!-- Feedback Section -->
         <div id="feedback" class="feedback hidden"></div>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="help-modal">
+        <div class="help-content">
+            <div class="help-header">
+                <h2 id="help-modal-title">Game Rules & Instructions</h2>
+                <button class="close-btn" onclick="toggleHelp()" title="Close">×</button>
+            </div>
+            <div class="help-body">
+                <div class="help-section">
+                    <h3 id="how-to-play-title">How to Play</h3>
+                    <ol>
+                        <li id="step1">Read the Activity: An activity description will appear above the Time Matrix.</li>
+                        <li id="step2">Classify the Activity: Click on the quadrant (Q1, Q2, Q3, or Q4) where you think this activity belongs.</li>
+                        <li id="step3">Get Feedback: You'll see immediate feedback - green for correct, red for incorrect.</li>
+                        <li id="step4">Learn: If incorrect, you'll see which quadrant was correct with an explanation.</li>
+                        <li id="step5">Continue: The next activity will appear automatically after a short delay.</li>
+                    </ol>
+                </div>
+                
+                <div class="help-section">
+                    <h3 id="quadrant-guide-title">The Four Quadrants</h3>
+                    <div class="quadrant-help-grid">
+                        <div class="quadrant-help q1-help">
+                            <h4 id="q1-title">Q1: Important & Urgent</h4>
+                            <p id="q1-examples">Examples: Crises, deadlines, emergencies, urgent problems</p>
+                            <p id="q1-strategy">Strategy: Handle immediately, but try to reduce these through better planning</p>
+                        </div>
+                        <div class="quadrant-help q2-help">
+                            <h4 id="q2-title">Q2: Important & Not Urgent</h4>
+                            <p id="q2-examples">Examples: Planning, prevention, values, relationship building</p>
+                            <p id="q2-strategy">Strategy: Schedule time for these - they're key to long-term success</p>
+                        </div>
+                        <div class="quadrant-help q3-help">
+                            <h4 id="q3-title">Q3: Not Important & Urgent</h4>
+                            <p id="q3-examples">Examples: Some calls, meetings, interruptions, some emails</p>
+                            <p id="q3-strategy">Strategy: Delegate or minimize - they feel urgent but aren't truly important</p>
+                        </div>
+                        <div class="quadrant-help q4-help">
+                            <h4 id="q4-title">Q4: Not Important & Not Urgent</h4>
+                            <p id="q4-examples">Examples: Time wasters, excessive entertainment, trivial busywork</p>
+                            <p id="q4-strategy">Strategy: Eliminate or minimize - these are pure time drains</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-section">
+                    <h3 id="scoring-title">Scoring</h3>
+                    <ul>
+                        <li id="scoring-correct">+1 point for each correct classification</li>
+                        <li id="scoring-incorrect">0 points for incorrect answers (no penalty)</li>
+                        <li id="scoring-progress">See your progress and final accuracy percentage</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section">
+                    <h3 id="learning-goals-title">Learning Goals</h3>
+                    <ul>
+                        <li id="learning-goal1">Identify what's truly important vs. just urgent</li>
+                        <li id="learning-goal2">Recognize time-wasting activities</li>
+                        <li id="learning-goal3">Focus energy on Q2 activities for long-term success</li>
+                        <li id="learning-goal4">Reduce time spent in Q1 through better planning</li>
+                    </ul>
+                </div>
+                
+                <div class="help-section pro-tip">
+                    <h3 id="pro-tip-title">Pro Tip:</h3>
+                    <p id="pro-tip-text">The goal isn't just to win the game, but to learn how to apply these principles to your real life. Ask yourself: 'Which quadrant does this activity in my life belong to?'</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

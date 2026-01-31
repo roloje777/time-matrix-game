@@ -1,115 +1,199 @@
 {
   "activities": [
     {
-      "description": "Clean up after a water leak or spill",
+      "description": {
+        "en": "Clean up after a water leak or spill",
+        "pt": "Limpar após um vazamento de água ou derramamento"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Cook dinner because the family needs to eat now",
+      "description": {
+        "en": "Cook dinner because the family needs to eat now",
+        "pt": "Cozinhar o jantar porque a família precisa comer agora"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Wash dishes when there are none left for the next meal",
+      "description": {
+        "en": "Wash dishes when there are none left for the next meal",
+        "pt": "Lavar a louça quando não há mais para a próxima refeição"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Emergency grocery run due to no food at home",
+      "description": {
+        "en": "Emergency grocery run due to no food at home",
+        "pt": "Compra de emergência de mantimentos por falta de comida em casa"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Fix a broken appliance essential for daily life",
+      "description": {
+        "en": "Fix a broken appliance essential for daily life",
+        "pt": "Consertar um eletrodoméstico quebrado essencial para o dia a dia"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Take out overflowing trash",
+      "description": {
+        "en": "Take out overflowing trash",
+        "pt": "Colocar o lixo transbordando para fora"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Handle a sudden pest problem",
+      "description": {
+        "en": "Handle a sudden pest problem",
+        "pt": "Resolver um problema súbito de pragas"
+      },
       "correctQuadrant": "q1"
     },
     {
-      "description": "Weekly meal planning",
+      "description": {
+        "en": "Weekly meal planning",
+        "pt": "Planejamento semanal de refeições"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Regular house cleaning schedule",
+      "description": {
+        "en": "Regular house cleaning schedule",
+        "pt": "Agenda regular de limpeza da casa"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Organizing cupboards and storage areas",
+      "description": {
+        "en": "Organizing cupboards and storage areas",
+        "pt": "Organizar armários e áreas de armazenamento"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Preventive home maintenance",
+      "description": {
+        "en": "Preventive home maintenance",
+        "pt": "Manutenção preventiva da casa"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Batch cooking meals for the week",
+      "description": {
+        "en": "Batch cooking meals for the week",
+        "pt": "Cozinhar refeições em lote para a semana"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Decluttering unused items",
+      "description": {
+        "en": "Decluttering unused items",
+        "pt": "Desfazer-se de itens não utilizados"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Creating a household budget",
+      "description": {
+        "en": "Creating a household budget",
+        "pt": "Criar um orçamento doméstico"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Teaching children household routines",
+      "description": {
+        "en": "Teaching children household routines",
+        "pt": "Ensinar às crianças rotinas domésticas"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Deep cleaning bathrooms and kitchen appliances",
+      "description": {
+        "en": "Deep cleaning bathrooms and kitchen appliances",
+        "pt": "Limpeza profunda de banheiros e eletrodomésticos"
+      },
       "correctQuadrant": "q2"
     },
     {
-      "description": "Cleaning the house suddenly because guests might arrive",
+      "description": {
+        "en": "Cleaning the house suddenly because guests might arrive",
+        "pt": "Limpar a casa de repente porque os convidados podem chegar"
+      },
       "correctQuadrant": "q3"
     },
     {
-      "description": "Re-cleaning already clean areas unnecessarily",
+      "description": {
+        "en": "Re-cleaning already clean areas unnecessarily",
+        "pt": "Re-limpar áreas já limpas desnecessariamente"
+      },
       "correctQuadrant": "q3"
     },
     {
-      "description": "Cooking an elaborate meal due to social pressure",
+      "description": {
+        "en": "Cooking an elaborate meal due to social pressure",
+        "pt": "Cozinhar uma refeição elaborada por pressão social"
+      },
       "correctQuadrant": "q3"
     },
     {
-      "description": "Responding immediately to non-essential household messages",
+      "description": {
+        "en": "Responding immediately to non-essential household messages",
+        "pt": "Responder imediatamente a mensagens domésticas não essenciais"
+      },
       "correctQuadrant": "q3"
     },
     {
-      "description": "Impulsively rearranging furniture",
+      "description": {
+        "en": "Impulsively rearranging furniture",
+        "pt": "Reorganizar impulsivamente os móveis"
+      },
       "correctQuadrant": "q3"
     },
     {
-      "description": "Running errands that feel urgent but could wait",
+      "description": {
+        "en": "Running errands that feel urgent but could wait",
+        "pt": "Fazer recados que parecem urgentes mas podem esperar"
+      },
       "correctQuadrant": "q3"
     },
     {
-      "description": "Excessive TV watching instead of doing chores",
+      "description": {
+        "en": "Excessive TV watching instead of doing chores",
+        "pt": "Assistir TV em excesso em vez de fazer tarefas"
+      },
       "correctQuadrant": "q4"
     },
     {
-      "description": "Endless scrolling on the phone",
+      "description": {
+        "en": "Endless scrolling on the phone",
+        "pt": "Rolagem interminável no telefone"
+      },
       "correctQuadrant": "q4"
     },
     {
-      "description": "Re-organizing the same drawer repeatedly",
+      "description": {
+        "en": "Re-organizing the same drawer repeatedly",
+        "pt": "Re-organizar a mesma gaveta repetidamente"
+      },
       "correctQuadrant": "q4"
     },
     {
-      "description": "Playing games while chores pile up",
+      "description": {
+        "en": "Playing games while chores pile up",
+        "pt": "Jogar videogames enquanto as tarefas se acumulam"
+      },
       "correctQuadrant": "q4"
     },
     {
-      "description": "Researching cleaning methods instead of cleaning",
+      "description": {
+        "en": "Researching cleaning methods instead of cleaning",
+        "pt": "Pesquisar métodos de limpeza em vez de limpar"
+      },
       "correctQuadrant": "q4"
     },
     {
-      "description": "Over-shopping for unnecessary household items",
+      "description": {
+        "en": "Over-shopping for unnecessary household items",
+        "pt": "Comprar demais itens domésticos desnecessários"
+      },
       "correctQuadrant": "q4"
     }
   ]
