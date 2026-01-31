@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FranklinCovey Time Matrix Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>FranklinCovey Time Matrix Game</h1>
+            <p class="instructions">
+                Classify each activity into the correct quadrant of the Time Matrix:
+                <strong>Q1 (Important & Urgent)</strong>,
+                <strong>Q2 (Important & Not Urgent)</strong>,
+                <strong>Q3 (Not Important & Urgent)</strong>, or
+                <strong>Q4 (Not Important & Not Urgent)</strong>.
+            </p>
+        </header>
+
+        <!-- Score Display -->
+        <div class="score-board">
+            <div class="score-item">
+                <span class="score-label">Score:</span>
+                <span id="score" class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Activities:</span>
+                <span id="progress" class="score-value">0 / 0</span>
+            </div>
+        </div>
+
+        <!-- Current Activity Display -->
+        <div class="activity-section">
+            <h2>Current Activity</h2>
+            <div id="current-activity" class="activity-card">
+                Loading activity...
+            </div>
+        </div>
+
+        <!-- Time Matrix Grid -->
+        <div class="matrix-container">
+            <h2>Time Matrix Quadrants</h2>
+            <div class="time-matrix">
+                <!-- Q1: Important & Urgent -->
+                <div class="quadrant q1" data-quadrant="q1">
+                    <div class="quadrant-header">
+                        <h3>Q1</h3>
+                        <p>Important & Urgent</p>
+                    </div>
+                    <div class="quadrant-description">
+                        Crises, deadlines, emergencies
+                    </div>
+                    <button class="select-btn" onclick="selectQuadrant('q1')">Select Q1</button>
+                </div>
+
+                <!-- Q2: Important & Not Urgent -->
+                <div class="quadrant q2" data-quadrant="q2">
+                    <div class="quadrant-header">
+                        <h3>Q2</h3>
+                        <p>Important & Not Urgent</p>
+                    </div>
+                    <div class="quadrant-description">
+                        Planning, prevention, values
+                    </div>
+                    <button class="select-btn" onclick="selectQuadrant('q2')">Select Q2</button>
+                </div>
+
+                <!-- Q3: Not Important & Urgent -->
+                <div class="quadrant q3" data-quadrant="q3">
+                    <div class="quadrant-header">
+                        <h3>Q3</h3>
+                        <p>Not Important & Urgent</p>
+                    </div>
+                    <div class="quadrant-description">
+                        Interruptions, some calls
+                    </div>
+                    <button class="select-btn" onclick="selectQuadrant('q3')">Select Q3</button>
+                </div>
+
+                <!-- Q4: Not Important & Not Urgent -->
+                <div class="quadrant q4" data-quadrant="q4">
+                    <div class="quadrant-header">
+                        <h3>Q4</h3>
+                        <p>Not Important & Not Urgent</p>
+                    </div>
+                    <div class="quadrant-description">
+                        Time wasters, entertainment
+                    </div>
+                    <button class="select-btn" onclick="selectQuadrant('q4')">Select Q4</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div id="feedback" class="feedback hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

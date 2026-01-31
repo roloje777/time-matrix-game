@@ -1,56 +1,116 @@
 {
-  "timeMatrix": {
-    "quadrant1": {
-      "name": "Urgent & Important",
-      "description": "Crises, deadlines, things that must be handled immediately",
-      "activities": [
-        "Clean up after a water leak or spill",
-        "Cook dinner because the family needs to eat now",
-        "Wash dishes when there are none left for the next meal",
-        "Emergency grocery run due to no food at home",
-        "Fix a broken appliance essential for daily life",
-        "Take out overflowing trash",
-        "Handle a sudden pest problem"
-      ]
+  "activities": [
+    {
+      "description": "Clean up after a water leak or spill",
+      "correctQuadrant": "q1"
     },
-    "quadrant2": {
-      "name": "Not Urgent & Important",
-      "description": "Planning, prevention, long-term improvement",
-      "activities": [
-        "Weekly meal planning",
-        "Regular house cleaning schedule",
-        "Organizing cupboards and storage areas",
-        "Preventive home maintenance",
-        "Batch cooking meals for the week",
-        "Decluttering unused items",
-        "Creating a household budget",
-        "Teaching children household routines",
-        "Deep cleaning bathrooms and kitchen appliances"
-      ]
+    {
+      "description": "Cook dinner because the family needs to eat now",
+      "correctQuadrant": "q1"
     },
-    "quadrant3": {
-      "name": "Urgent & Not Important",
-      "description": "Interruptions and low-value urgent tasks",
-      "activities": [
-        "Cleaning the house suddenly because guests might arrive",
-        "Re-cleaning already clean areas unnecessarily",
-        "Cooking an elaborate meal due to social pressure",
-        "Responding immediately to non-essential household messages",
-        "Impulsively rearranging furniture",
-        "Running errands that feel urgent but could wait"
-      ]
+    {
+      "description": "Wash dishes when there are none left for the next meal",
+      "correctQuadrant": "q1"
     },
-    "quadrant4": {
-      "name": "Not Urgent & Not Important",
-      "description": "Time wasters and avoidance activities",
-      "activities": [
-        "Excessive TV watching instead of doing chores",
-        "Endless scrolling on the phone",
-        "Re-organizing the same drawer repeatedly",
-        "Playing games while chores pile up",
-        "Researching cleaning methods instead of cleaning",
-        "Over-shopping for unnecessary household items"
-      ]
+    {
+      "description": "Emergency grocery run due to no food at home",
+      "correctQuadrant": "q1"
+    },
+    {
+      "description": "Fix a broken appliance essential for daily life",
+      "correctQuadrant": "q1"
+    },
+    {
+      "description": "Take out overflowing trash",
+      "correctQuadrant": "q1"
+    },
+    {
+      "description": "Handle a sudden pest problem",
+      "correctQuadrant": "q1"
+    },
+    {
+      "description": "Weekly meal planning",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Regular house cleaning schedule",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Organizing cupboards and storage areas",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Preventive home maintenance",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Batch cooking meals for the week",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Decluttering unused items",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Creating a household budget",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Teaching children household routines",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Deep cleaning bathrooms and kitchen appliances",
+      "correctQuadrant": "q2"
+    },
+    {
+      "description": "Cleaning the house suddenly because guests might arrive",
+      "correctQuadrant": "q3"
+    },
+    {
+      "description": "Re-cleaning already clean areas unnecessarily",
+      "correctQuadrant": "q3"
+    },
+    {
+      "description": "Cooking an elaborate meal due to social pressure",
+      "correctQuadrant": "q3"
+    },
+    {
+      "description": "Responding immediately to non-essential household messages",
+      "correctQuadrant": "q3"
+    },
+    {
+      "description": "Impulsively rearranging furniture",
+      "correctQuadrant": "q3"
+    },
+    {
+      "description": "Running errands that feel urgent but could wait",
+      "correctQuadrant": "q3"
+    },
+    {
+      "description": "Excessive TV watching instead of doing chores",
+      "correctQuadrant": "q4"
+    },
+    {
+      "description": "Endless scrolling on the phone",
+      "correctQuadrant": "q4"
+    },
+    {
+      "description": "Re-organizing the same drawer repeatedly",
+      "correctQuadrant": "q4"
+    },
+    {
+      "description": "Playing games while chores pile up",
+      "correctQuadrant": "q4"
+    },
+    {
+      "description": "Researching cleaning methods instead of cleaning",
+      "correctQuadrant": "q4"
+    },
+    {
+      "description": "Over-shopping for unnecessary household items",
+      "correctQuadrant": "q4"
     }
-  }
+  ]
 }

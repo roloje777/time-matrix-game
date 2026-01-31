@@ -1,0 +1,339 @@
+/* FranklinCovey Time Matrix Game Styles */
+
+/* CSS Custom Properties for easy theming */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --q1-color: #e74c3c; /* Red for Q1 - Urgent/Important */
+    --q2-color: #27ae60; /* Green for Q2 - Not Urgent/Important */
+    --q3-color: #f39c12; /* Orange for Q3 - Urgent/Not Important */
+    --q4-color: #95a5a6; /* Grey for Q4 - Not Urgent/Not Important */
+    --text-color: #333;
+    --light-text: #fff;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.instructions {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.instructions strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Score Board Styles */
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+}
+
+.score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Activity Section Styles */
+.activity-section {
+    margin-bottom: 30px;
+}
+
+.activity-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.activity-card {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+}
+
+/* Time Matrix Styles */
+.matrix-container {
+    margin-bottom: 30px;
+}
+
+.matrix-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.time-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.quadrant {
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    position: relative;
+    box-shadow: var(--box-shadow);
+}
+
+/* Quadrant Colors */
+.quadrant.q1 {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: var(--q1-color);
+}
+
+.quadrant.q2 {
+    background-color: rgba(39, 174, 96, 0.1);
+    border-color: var(--q2-color);
+}
+
+.quadrant.q3 {
+    background-color: rgba(243, 156, 18, 0.1);
+    border-color: var(--q3-color);
+}
+
+.quadrant.q4 {
+    background-color: rgba(149, 165, 166, 0.1);
+    border-color: var(--q4-color);
+}
+
+.quadrant:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Quadrant Header Styles */
+.quadrant-header h3 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.quadrant-header p {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Quadrant Color-specific Text Colors */
+.quadrant.q1 .quadrant-header h3,
+.quadrant.q1 .quadrant-header p {
+    color: var(--q1-color);
+}
+
+.quadrant.q2 .quadrant-header h3,
+.quadrant.q2 .quadrant-header p {
+    color: var(--q2-color);
+}
+
+.quadrant.q3 .quadrant-header h3,
+.quadrant.q3 .quadrant-header p {
+    color: var(--q3-color);
+}
+
+.quadrant.q4 .quadrant-header h3,
+.quadrant.q4 .quadrant-header p {
+    color: var(--q4-color);
+}
+
+.quadrant-description {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+/* Button Styles */
+.select-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.select-btn:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.select-btn:active {
+    transform: scale(0.95);
+}
+
+/* Feedback Styles */
+.feedback {
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.feedback.success {
+    background-color: rgba(39, 174, 96, 0.2);
+    color: var(--q2-color);
+    border: 1px solid var(--q2-color);
+}
+
+.feedback.error {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: var(--q1-color);
+    border: 1px solid var(--q1-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.quadrant.pulse {
+    animation: pulse 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .time-matrix {
+        grid-template-columns: 1fr;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .activity-card {
+        font-size: 1rem;
+        min-height: 80px;
+    }
+}
+
+/* Accessibility */
+.quadrant:focus-within {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+.select-btn:focus {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --box-shadow: none;
+        --border-radius: 0;
+    }
+    
+    .quadrant {
+        border-width: 3px;
+    }
+}
