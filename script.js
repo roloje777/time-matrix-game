@@ -11,10 +11,11 @@
  */
 
 // Game state variables
-let activities = [];
-let currentActivityIndex = 0;
-let score = 0;
-let totalActivities = 0;
+let activities = [];           // All activities from JSON
+let shuffledActivities = [];   // Randomized order of activities
+let currentActivityIndex = 0;  // Current position in shuffled array
+let score = 0;                 // User's correct answers
+let totalActivities = 0;       // Total number of activities
 
 // DOM elements
 const currentActivityEl = document.getElementById('current-activity');
@@ -49,8 +50,12 @@ async function loadActivities() {
             throw new Error('No activities found in data.json');
         }
         
+        // Store all activities
         activities = data.activities;
         totalActivities = activities.length;
+        
+        // Randomize the order of activities
+        shuffledActivities = shuffleArray([...activities]);
         
         // Update progress display
         progressEl.textContent = `0 / ${totalActivities}`;
@@ -70,6 +75,27 @@ async function loadActivities() {
 }
 
 /**
+ * Fisher-Yates shuffle algorithm to randomize array order
+ * @param {Array} array - The array to shuffle
+ * @returns {Array} - New shuffled array
+ */
+function shuffleArray(array) {
+    // Create a copy to avoid mutating the original array
+    const shuffled = [...array];
+    
+    // Fisher-Yates shuffle algorithm
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        // Generate random index between 0 and i
+        const j = Math.floor(Math.random() * (i + 1));
+        
+        // Swap elements at positions i and j
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    
+    return shuffled;
+}
+
+/**
  * Start the game by displaying the first activity
  */
 function startGame() {
@@ -82,17 +108,17 @@ function startGame() {
 
 /**
  * Display the current activity
- * @param {number} index - Index of the activity to display
+ * @param {number} index - Index of the activity to display in the shuffled array
  */
 function displayActivity(index) {
     // Check if we've reached the end of activities
-    if (index >= activities.length) {
+    if (index >= shuffledActivities.length) {
         endGame();
         return;
     }
     
     currentActivityIndex = index;
-    const activity = activities[index];
+    const activity = shuffledActivities[index];
     
     // Update the activity display
     currentActivityEl.textContent = activity.description;
@@ -115,7 +141,7 @@ function displayActivity(index) {
  * @param {string} selectedQuadrant - The quadrant the user selected (q1, q2, q3, q4)
  */
 function selectQuadrant(selectedQuadrant) {
-    const currentActivity = activities[currentActivityIndex];
+    const currentActivity = shuffledActivities[currentActivityIndex];
     
     // Check if the selection is correct
     const isCorrect = selectedQuadrant === currentActivity.correctQuadrant;
