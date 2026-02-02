@@ -659,7 +659,7 @@ function showQuadrantFeedback(selectedQuadrant, isCorrect) {
   // Remove feedback after animation duration
   setTimeout(() => {
     quadrantElement.classList.remove("feedback-correct", "feedback-incorrect");
-  }, 1000);
+  }, 2500);
 }
 
 /**
